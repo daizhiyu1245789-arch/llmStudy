@@ -42,6 +42,30 @@ python -m tinyllm.generate --ckpt_path checkpoints/latest.pt --prompt "今天" -
 - `--block_size`
 - `--max_steps`
 
+## 学习资料
+
+完整学习路线放在 `study/README.md`。如果你是 Node 开发者，先读 `study/00_Node开发者学习总路线.md`，再按顺序从 Python、PyTorch、神经网络、常用机器学习算法、深度学习、强化学习、Attention、Tokenizer 学到 Node 集成和项目实战。
+
+学习辅助：
+
+- `study/00_大模型术语表.md`
+- `study/00_学习打卡和项目作业.md`
+
+如果你想先建立大模型整体地图，可以先读：
+
+- `study/02_深度学习核心/05_大模型入门.md`
+
+如果你想从 Node 开发者视角接入真实模型，可以看：
+
+- `study/04_扩展学习/03_Node开发者大模型学习路线.md`
+- `study/03_项目实战/04_Node集成HuggingFace.md`
+- `study/03_项目实战/05_Prompt模板和结构化输出.md`
+- `study/03_项目实战/06_Embedding和向量检索.md`
+- `study/03_项目实战/07_RAG文档问答.md`
+- `study/03_项目实战/08_ToolCalling工具调用.md`
+- `study/03_项目实战/09_日志评估和部署.md`
+- `examples/node-huggingface/`
+
 ## 目录结构
 
 ### tinyllm/model.py — GPT 模型核心定义
@@ -93,5 +117,3 @@ python -m tinyllm.generate --ckpt_path checkpoints/latest.pt --prompt "今天" -
 - **save_checkpoint()**：将模型权重（state_dict）、优化器状态、GPTConfig 超参数、当前步数、最佳验证损失、分词器配置等写入 .pt 文件
 - **load_checkpoint()**：从磁盘加载 checkpoint 并将张量映射到目标设备（CPU/CUDA）
 - **build_model_from_checkpoint()**：从 checkpoint 恢复完整的 GPT 模型（配置 + 权重），用于推理或训练恢复
-
-

@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Node Hugging Face Demo</title>
+    <style>
+      :root {
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        color: #1f2937;
+        background: #f5f7fb;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        padding: 32px;
+      }
+
+      main {
+        width: min(920px, 100%);
+        display: grid;
+        gap: 16px;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: 28px;
+      }
+
+      textarea,
+      output {
+        width: 100%;
+        border: 1px solid #d1d5db;
+        border-radius: 8px;
+        background: #ffffff;
+        color: #111827;
+      }
+
+      textarea {
+        min-height: 150px;
+        padding: 14px;
+        resize: vertical;
+        font: inherit;
+      }
+
+      .controls {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        align-items: center;
+      }
+
+      label {
+        display: grid;
+        gap: 4px;
+        font-size: 13px;
+      }
+
+      input {
+        width: 120px;
+        border: 1px solid #d1d5db;
+        border-radius: 6px;
+        padding: 8px;
+        font: inherit;
+      }
+
+      button {
+        border: 0;
+        border-radius: 8px;
+        padding: 10px 14px;
+        background: #2563eb;
+        color: #ffffff;
+        font: inherit;
+        cursor: pointer;
+      }
+
+      button.secondary {
+        background: #374151;
+      }
+
+      button:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+      }
+
+      output {
+        display: block;
+        min-height: 220px;
+        padding: 16px;
+        white-space: pre-wrap;
+        line-height: 1.6;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Node + Hugging Face</h1>
+      <textarea id="prompt">Deep learning is</textarea>
+      <div class="controls">
+        <label>
+          maxNewTokens
+          <input id="maxNewTokens" type="number" min="1" max="512" value="120" />
+        </label>
+        <label>
+          temperature
+          <input id="temperature" type="number" min="0.1" max="2" step="0.1" value="0.8" />
+        </label>
+        <label>
+          topP
+          <input id="topP" type="number" min="0.1" max="1" step="0.05" value="0.95" />
+        </label>
+        <button id="generate">普通生成</button>
+        <button id="stream" class="secondary">流式生成</button>
+      </div>
+      <output id="output"></output>
+    </main>
+
+    <script>
+      const promptEl = document.querySelector("#prompt");
+      const maxNewTokensEl = document.querySelector("#maxNewTokens");
+      const temperatureEl = document.querySelector("#temperature");
+      const topPEl = document.querySelector("#topP");
+      const outputEl = document.querySelector("#output");
+      const generateBtn = document.querySelector("#generate");
+      const streamBtn = document.querySelector("#stream");
+
+      function payload() {
+        return {
+          prompt: promptEl.value,
+          maxNewTokens: Number(maxNewTokensEl.value),
+          temperature: Number(temperatureEl.value),
+          topP: Number(topPEl.value),
+        };
+      }
+
+      function setLoading(loading) {
+        generateBtn.disabled = loading;
+        streamBtn.disabled = loading;
+      }
+
+      generateBtn.addEventListener("click", async () => {
+        setLoading(true);
+        outputEl.textContent = "生成中...";
+
+        try {
+          const response = await fetch("/api/generate", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(payload()),
+          });
+          const data = await response.json();
+
+          if (!response.ok) {
+            throw new Error(data.error || "请求失败");
+          }
+
+          outputEl.textContent = data.generatedText;
+        } catch (error) {
+          outputEl.textContent = error.message;
+        } finally {
+          setLoading(false);
+        }
+      });
+
+      streamBtn.addEventListener("click", async () => {
+        setLoading(true);
+        outputEl.textContent = "";
+
+        try {
+          const response = await fetch("/api/generate/stream", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(payload()),
+          });
+
+          if (!response.ok || !response.body) {
+            const data = await response.json().catch(() => ({}));
+            throw new Error(data.error || "流式请求失败");
+          }
+
+          const reader = response.body.getReader();
+          const decoder = new TextDecoder();
+          let buffer = "";
+
+          while (true) {
+            const { value, done } = await reader.read();
+            if (done) break;
+
+            buffer += decoder.decode(value, { stream: true });
+            const events = buffer.split("\n\n");
+            buffer = events.pop() || "";
+
+            for (const event of events) {
+              const line = event.split("\n").find((item) => item.startsWith("data: "));
+              if (!line) continue;
+
+              const data = JSON.parse(line.slice(6));
+              if (data.token) outputEl.textContent += data.token;
+              if (data.error) throw new Error(data.error);
+            }
+          }
+        } catch (error) {
+          outputEl.textContent += `\n\n${error.message}`;
+        } finally {
+          setLoading(false);
+        }
+      });
+    </script>
+  </body>
+</html>
