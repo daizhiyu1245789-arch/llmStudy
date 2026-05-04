@@ -92,13 +92,13 @@ Agent：模型怎么选择调用工具
 这些是后面做 Hugging Face、RAG、Tool Calling 的工程底座：
 
 ```text
-1. study/01_Node应用基础/README.md
-2. study/01_Node应用基础/01_TypeScript工程基础.md
-3. study/01_Node应用基础/02_HTTP接口和SSE流式响应.md
-4. study/01_Node应用基础/03_环境变量和密钥安全.md
-5. study/01_Node应用基础/04_异步编程和错误处理.md
-6. study/01_Node应用基础/05_文件处理和文本预处理.md
-7. study/01_Node应用基础/06_Node大模型应用项目结构.md
+1. study/01_Node应用工程基础/README.md
+2. study/01_Node应用工程基础/01_TypeScript工程基础.md
+3. study/01_Node应用工程基础/02_HTTP接口和SSE流式响应.md
+4. study/01_Node应用工程基础/03_环境变量和密钥安全.md
+5. study/01_Node应用工程基础/04_异步编程和错误处理.md
+6. study/01_Node应用工程基础/05_文件处理和文本预处理.md
+7. study/01_Node应用工程基础/06_Node大模型应用项目结构.md
 ```
 
 目标：
@@ -115,10 +115,10 @@ Agent：模型怎么选择调用工具
 先别急着看完所有理论。你是工程师，先跑通会更有感觉。
 
 ```text
-8. study/01_Python基础/01_Python_vs_JS语法对比.md
-9. study/01_Python基础/03_PyTorch快速入门.md
-10. study/01_Python基础/04_动手跑第一个模型.md
-11. study/03_项目实战/01_把tinyllm跑起来.md
+8. study/02_Python和PyTorch基础/01_Python_vs_JS语法对比.md
+9. study/02_Python和PyTorch基础/03_PyTorch快速入门.md
+10. study/02_Python和PyTorch基础/04_动手跑第一个模型.md
+11. study/05_大模型应用实战/01_把tinyllm跑起来.md
 ```
 
 目标：
@@ -131,13 +131,13 @@ Agent：模型怎么选择调用工具
 ### 第三阶段：补底层概念
 
 ```text
-12. study/02_深度学习核心/00_大模型数学直觉.md
-13. study/02_深度学习核心/01_机器学习是什么.md
-14. study/02_深度学习核心/02_神经网络基础.md
-15. study/02_深度学习核心/06_神经网络进阶.md
-16. study/02_深度学习核心/08_深度学习概览.md
-17. study/02_深度学习核心/07_常用机器学习算法.md
-18. study/02_深度学习核心/09_强化学习入门.md
+12. study/03_机器学习与深度学习基础/00_大模型数学直觉.md
+13. study/03_机器学习与深度学习基础/01_机器学习是什么.md
+14. study/03_机器学习与深度学习基础/02_神经网络基础.md
+15. study/03_机器学习与深度学习基础/06_神经网络进阶.md
+16. study/03_机器学习与深度学习基础/08_深度学习概览.md
+17. study/03_机器学习与深度学习基础/07_常用机器学习算法.md
+18. study/03_机器学习与深度学习基础/09_强化学习入门.md
 ```
 
 目标：
@@ -151,9 +151,9 @@ Agent：模型怎么选择调用工具
 ### 第四阶段：理解大模型核心
 
 ```text
-19. study/02_深度学习核心/04_Tokenizer分词器.md
-20. study/02_深度学习核心/03_Attention机制.md
-21. study/02_深度学习核心/05_大模型入门.md
+19. study/04_大模型核心原理/04_Tokenizer分词器.md
+20. study/04_大模型核心原理/03_Attention机制.md
+21. study/04_大模型核心原理/05_大模型入门.md
 ```
 
 目标：
@@ -166,13 +166,13 @@ Agent：模型怎么选择调用工具
 ### 第五阶段：开始 Node 大模型应用
 
 ```text
-22. study/04_扩展学习/03_Node开发者大模型学习路线.md
-23. study/03_项目实战/04_Node集成HuggingFace.md
-24. study/03_项目实战/05_Prompt模板和结构化输出.md
-25. study/03_项目实战/06_Embedding和向量检索.md
-26. study/03_项目实战/07_RAG文档问答.md
-27. study/03_项目实战/08_ToolCalling工具调用.md
-28. study/03_项目实战/09_日志评估和部署.md
+22. study/06_扩展学习/03_Node开发者大模型学习路线.md
+23. study/05_大模型应用实战/04_Node集成HuggingFace.md
+24. study/05_大模型应用实战/05_Prompt模板和结构化输出.md
+25. study/05_大模型应用实战/06_Embedding和向量检索.md
+26. study/05_大模型应用实战/07_RAG文档问答.md
+27. study/05_大模型应用实战/08_ToolCalling工具调用.md
+28. study/05_大模型应用实战/09_日志评估和部署.md
 ```
 
 目标：
@@ -211,7 +211,7 @@ Tool Calling 工具调用
 这部分先读：
 
 ```text
-study/03_项目实战/09_日志评估和部署.md
+study/05_大模型应用实战/09_日志评估和部署.md
 ```
 
 然后继续补：

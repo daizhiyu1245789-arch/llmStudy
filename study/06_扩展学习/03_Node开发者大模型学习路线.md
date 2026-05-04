@@ -223,12 +223,12 @@ npm install @huggingface/transformers
 现在可以按这个顺序继续学：
 
 ```
-03_项目实战/04_Node集成HuggingFace.md
-03_项目实战/05_Prompt模板和结构化输出.md
-03_项目实战/06_Embedding和向量检索.md
-03_项目实战/07_RAG文档问答.md
-03_项目实战/08_ToolCalling工具调用.md
-03_项目实战/09_日志评估和部署.md
+05_大模型应用实战/04_Node集成HuggingFace.md
+05_大模型应用实战/05_Prompt模板和结构化输出.md
+05_大模型应用实战/06_Embedding和向量检索.md
+05_大模型应用实战/07_RAG文档问答.md
+05_大模型应用实战/08_ToolCalling工具调用.md
+05_大模型应用实战/09_日志评估和部署.md
 ```
 
 如果你想做成完整作品集，最推荐做：
@@ -259,5 +259,5 @@ Node + React + Hugging Face + RAG 文档问答
 ✅ 你已经有了 Node 开发者的大模型学习路线
 ✅ 知道该优先补服务端集成、流式输出、RAG、工具调用
 
-下一步 → 03_项目实战/04_Node集成HuggingFace.md
+下一步 → 05_大模型应用实战/04_Node集成HuggingFace.md
 ```

@@ -217,7 +217,7 @@ context 可以这样拼：
 
 ```text
 [1] 标题：Node 集成 Hugging Face
-来源：study/03_项目实战/04_Node集成HuggingFace.md
+来源：study/05_大模型应用实战/04_Node集成HuggingFace.md
 内容：
 进入 examples/node-huggingface 后运行 npm install，再配置 .env，最后 npm run dev。
 
@@ -334,7 +334,7 @@ RAG 问答追求准确，不追求发散。
     {
       "ref": 1,
       "title": "Node 集成 Hugging Face",
-      "source": "study/03_项目实战/04_Node集成HuggingFace.md",
+      "source": "study/05_大模型应用实战/04_Node集成HuggingFace.md",
       "chunkIndex": 3,
       "score": 0.82
     }
@@ -350,7 +350,7 @@ RAG 问答追求准确，不追求发散。
 
 引用：
 [1] Node 集成 Hugging Face
-    study/03_项目实战/04_Node集成HuggingFace.md
+    study/05_大模型应用实战/04_Node集成HuggingFace.md
 ```
 
 引用来源很重要：

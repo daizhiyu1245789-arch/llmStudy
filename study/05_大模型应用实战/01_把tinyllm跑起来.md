@@ -257,5 +257,5 @@ python -m tinyllm.train --data_path data/sample.txt --batch_size 8
 ✅ 用训练好的模型生成了文本
 ✅ 学会了调参观察效果
 
-下一步 → 03_项目实战/02_用自己的数据训练.md
+下一步 → 05_大模型应用实战/02_用自己的数据训练.md
 ```

@@ -44,26 +44,28 @@ python -m tinyllm.generate --ckpt_path checkpoints/latest.pt --prompt "今天" -
 
 ## 学习资料
 
-完整学习路线放在 `study/README.md`。如果你是 Node 开发者，先读 `study/00_Node开发者学习总路线.md`，再按顺序从 Python、PyTorch、神经网络、常用机器学习算法、深度学习、强化学习、Attention、Tokenizer 学到 Node 集成和项目实战。
+完整学习路线放在 `study/README.md`。如果你是 Node 开发者，先读 `study/00_学习导航/00_Node开发者学习总路线.md`，再按顺序从 Python、PyTorch、神经网络、常用机器学习算法、深度学习、强化学习、Attention、Tokenizer 学到 Node 集成和项目实战。
 
 学习辅助：
 
-- `study/00_大模型术语表.md`
-- `study/00_学习打卡和项目作业.md`
+- `study/00_学习导航/00_大模型术语表.md`
+- `study/00_学习导航/00_学习打卡和项目作业.md`
+- `study/07_练习/`
+- `study/08_参考答案/`
 
 如果你想先建立大模型整体地图，可以先读：
 
-- `study/02_深度学习核心/05_大模型入门.md`
+- `study/04_大模型核心原理/05_大模型入门.md`
 
 如果你想从 Node 开发者视角接入真实模型，可以看：
 
-- `study/04_扩展学习/03_Node开发者大模型学习路线.md`
-- `study/03_项目实战/04_Node集成HuggingFace.md`
-- `study/03_项目实战/05_Prompt模板和结构化输出.md`
-- `study/03_项目实战/06_Embedding和向量检索.md`
-- `study/03_项目实战/07_RAG文档问答.md`
-- `study/03_项目实战/08_ToolCalling工具调用.md`
-- `study/03_项目实战/09_日志评估和部署.md`
+- `study/06_扩展学习/03_Node开发者大模型学习路线.md`
+- `study/05_大模型应用实战/04_Node集成HuggingFace.md`
+- `study/05_大模型应用实战/05_Prompt模板和结构化输出.md`
+- `study/05_大模型应用实战/06_Embedding和向量检索.md`
+- `study/05_大模型应用实战/07_RAG文档问答.md`
+- `study/05_大模型应用实战/08_ToolCalling工具调用.md`
+- `study/05_大模型应用实战/09_日志评估和部署.md`
 - `examples/node-huggingface/`
 
 ## 目录结构
